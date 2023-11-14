@@ -2,7 +2,7 @@ package Remote;
 
 import java.rmi.Naming;
 
-import es.deusto.ingenieria.sd.auctions.server.remote.IRemoteFacade;
+import Remote.IRemoteFacade;
 
 //This class implements Service Locator pattern
 public class ServiceLocator {
