@@ -1,7 +1,6 @@
 package Remote;
 
 import java.rmi.Naming;
-
 import Remote.IRemoteFacade;
 
 //This class implements Service Locator pattern
