@@ -1,4 +1,4 @@
-package gui;
+package es.deusto.ingenieria.sd.strava.client.gui;
 
 import javax.swing.JFrame;
 import java.awt.GridLayout;
@@ -18,22 +18,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 
-//import es.deusto.ingenieria.sd.strava.client.controller.SesionController;
-//import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
+import es.deusto.ingenieria.sd.strava.client.controller.SesionController;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
 
 public class VentanaEntrenamiento extends JFrame{
-//	private SesionController controller;
+	private SesionController controller;
 	
-	public VentanaEntrenamiento(){//SesionController sesionController) {
+	public VentanaEntrenamiento(SesionController sesionController) {
 		
-//		controller = sesionController;
+		controller = sesionController;
 		
-		setBounds(325, 100, 800, 408);
+		setBounds(425, 150, 800, 408);
 		getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
 		
 		JPanel panel = new JPanel();
@@ -41,27 +37,22 @@ public class VentanaEntrenamiento extends JFrame{
 		panel.setLayout(new GridLayout(3, 0, 0, 0));
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(128, 128, 128));
 		panel.add(panel_1);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
 		JLabel labelSesion = new JLabel("Sesiones Actuales");
-		labelSesion.setForeground(new Color(255, 255, 255));
-		labelSesion.setFont(new Font("Tahoma", Font.BOLD, 10));
 		labelSesion.setVerticalAlignment(SwingConstants.TOP);
 		labelSesion.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(labelSesion, BorderLayout.NORTH);
 		
 		JComboBox comboBoxSesion = new JComboBox();
-        comboBoxSesion.setModel(new DefaultComboBoxModel());//controller.getSesion().toArray()));
+        comboBoxSesion.setModel(new DefaultComboBoxModel(controller.getSesion().toArray()));
 		panel_1.add(comboBoxSesion);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(255, 128, 64));
 		panel.add(panel_2);
 		
 		JButton btnCrearSesion = new JButton("Creacion Sesion");
-		btnCrearSesion.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnCrearSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -86,19 +77,17 @@ public class VentanaEntrenamiento extends JFrame{
 					JOptionPane.showMessageDialog(null,  "debe introducir bien las fechas" , "error",JOptionPane.ERROR_MESSAGE);
 				}
 				
-//				controller.makeSesion(titulo, deporte, Double.parseDouble(distancia), fechIni, Integer.parseInt(horaIni), Double.parseDouble(duracion));
-//				repaint();
+				controller.makeSesion(titulo, deporte, Double.parseDouble(distancia), fechIni, Integer.parseInt(horaIni), Double.parseDouble(duracion));
+				repaint();
 				
 			}
 		});
 		panel_2.add(btnCrearSesion);
 		
 		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(new Color(255, 128, 64));
 		panel.add(panel_3);
 		
 		JButton btnSalir = new JButton("SALIR");
-		btnSalir.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_3.add(btnSalir);
 		
 		btnSalir.addActionListener(new ActionListener() {
@@ -111,8 +100,6 @@ public class VentanaEntrenamiento extends JFrame{
 
 		
 		setVisible(true);
-		
-		
 	}
 	
 }

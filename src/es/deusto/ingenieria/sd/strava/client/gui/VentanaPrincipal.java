@@ -1,4 +1,4 @@
-package gui;
+package es.deusto.ingenieria.sd.strava.client.gui;
 
 import java.awt.BorderLayout;
 
@@ -28,10 +28,10 @@ import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
 
-//import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
-//import es.deusto.ingenieria.sd.strava.client.controller.RetoController;
-//import es.deusto.ingenieria.sd.strava.client.controller.SesionController;
-//import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
+import es.deusto.ingenieria.sd.strava.client.controller.LoginController;
+import es.deusto.ingenieria.sd.strava.client.controller.RetoController;
+import es.deusto.ingenieria.sd.strava.client.controller.SesionController;
+import es.deusto.ingenieria.sd.strava.client.remote.ServiceLocator;
 
 
 public class VentanaPrincipal extends JFrame {
@@ -58,26 +58,28 @@ public class VentanaPrincipal extends JFrame {
 	private JButton btnSalir_1;
 	private JButton btnCerrarSesion_1;
 	private JButton btnRegistrarme_1;
-	private JPanel panel_2;
-	
-//	private SesionController sesionController;
-//	private LoginController loginController;
-//	private RetoController retoController;
 	private JPanel panel;
+	private JPanel panel_1;
+	private JPanel panel_2;
+	private JPanel panel_3;
+	
+	private SesionController sesionController;
+	private LoginController loginController;
+	private RetoController retoController;
 
-	public VentanaPrincipal(){//ServiceLocator service) {
+	public VentanaPrincipal(ServiceLocator service) {
 		
 		//CREACION DEL LOGGER
 		
 		
-//		sesionController = new SesionController(service);
-//		loginController = new LoginController(service);
-//		retoController = new RetoController(service);
+		sesionController = new SesionController(service);
+		loginController = new LoginController(service);
+		retoController = new RetoController(service);
 		
 		//PROPIEDADES DE LA VENTANA
 		ventanaActual = this;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(325, 100, 700, 600);
+		setBounds(425, 150, 1000, 800);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -98,20 +100,20 @@ public class VentanaPrincipal extends JFrame {
 		panelArribaIzq = new JPanel();
 		panelArribaIzq.setLayout(new GridLayout(2, 1));
 		panelArriba.add(panelArribaIzq);
-		panelArribaIzq.setBackground(new Color(255, 102, 0));
+		panelArribaIzq.setBackground(new Color(192, 192, 192));
 		
 		panelArribaIzq1 = new JPanel();
 		panelArribaIzq.add(panelArribaIzq1);
 		panelArribaIzq1.setLayout(new GridLayout(0,3,0,0));
-		panelArribaIzq1.setBackground(new Color(255, 102, 0));
+		panelArribaIzq1.setBackground(new Color(192, 192, 192));
 		
 		panelArribaIzq12 = new JPanel();
 		panelArribaIzq1.add(panelArribaIzq12);
-		panelArribaIzq12.setBackground(new Color(255, 102, 0));
+		panelArribaIzq12.setBackground(new Color(192, 192, 192));
 		
 		panelArribaIzq2 = new JPanel();
 		panelArribaIzq.add(panelArribaIzq2);
-		panelArribaIzq2.setBackground(new Color(255, 102, 0));
+		panelArribaIzq2.setBackground(new Color(192, 192, 192));
 		
 	   
 		panelArribaDrc = new JPanel();
@@ -124,16 +126,16 @@ public class VentanaPrincipal extends JFrame {
 		panelNorte.setLayout(new GridLayout(0,3,0,0));
 		
 		panelNorteIzq = new JPanel();
-		panelNorteIzq.setBackground(new Color(255, 102, 0));
+		panelNorteIzq.setBackground(new Color(192, 192, 192));
 		panelNorte.add(panelNorteIzq);
 		
 		
 		panelNorteMedio = new JPanel();
-		panelNorteMedio.setBackground(new Color(255, 102, 0));
+		panelNorteMedio.setBackground(new Color(192, 192, 192));
 		panelNorte.add(panelNorteMedio);
 		
 		panelNorteDrc = new JPanel();
-		panelNorteDrc.setBackground(new Color(255, 102, 0));
+		panelNorteDrc.setBackground(new Color(192, 192, 192));
 		panelNorte.add(panelNorteDrc);
 	
 		panelP1 = new JPanel();
@@ -142,39 +144,38 @@ public class VentanaPrincipal extends JFrame {
 		panelP1.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		panel = new JPanel();
-		panel.setBackground(new Color(255, 102, 0));
+		panel.setBackground(new Color(192, 192, 192));
 		panelP1.add(panel);
 		
 		btnReto = new JButton("RETO");
-		panel.add(btnReto);
 		btnReto.setBackground(new Color(255,128,1));
+		panelP1.add(btnReto);
 		
-				btnReto.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						
-						VentanaReto v1 = new VentanaReto();//retoController);
-					}
-				});
+		panel_1 = new JPanel();
+		panel_1.setBackground(new Color(192, 192, 192));
+		panelP1.add(panel_1);
 		
 		panelP2 = new JPanel();
 		panelArribaDrc.add(panelP2);
-		panelP2.setBackground(new Color(255, 102, 0));
+		panelP2.setBackground(new Color(192, 192, 192));
 		panelP2.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		panel_2 = new JPanel();
-		panel_2.setBackground(new Color(255, 102, 0));
+		panel_2.setBackground(new Color(192, 192, 192));
 		panelP2.add(panel_2);
 		
 		btnEntrenamiento = new JButton("ENTRENAMIENTO");
-		panel_2.add(btnEntrenamiento);
 		btnEntrenamiento.setBackground(new Color(255,128,1));
 		btnEntrenamiento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaEntrenamiento vE = new VentanaEntrenamiento();//sesionController);
+				VentanaEntrenamiento vE = new VentanaEntrenamiento(sesionController);
 			}
 		});
+		panelP2.add(btnEntrenamiento);
+		
+		panel_3 = new JPanel();
+		panel_3.setBackground(new Color(192, 192, 192));
+		panelP2.add(panel_3);
 		
 		
 		
@@ -192,7 +193,7 @@ public class VentanaPrincipal extends JFrame {
 
         lblFrase = new JLabel("");
 
-        ImageIcon im1 = new ImageIcon("imagenes//text.gif");
+        ImageIcon im1 = new ImageIcon("imagenes\\text.gif");
         ImageIcon imagenConDimensiones1 = new ImageIcon(im1.getImage().getScaledInstance(400,75,Image.SCALE_DEFAULT));
         lblFrase.setIcon(imagenConDimensiones1);
 		
@@ -211,7 +212,7 @@ public class VentanaPrincipal extends JFrame {
 		panelNorteDrc.add(lblHora);
 		
 		panelArribaIzq13 = new JPanel();
-		panelArribaIzq13.setBackground(new Color(255, 102, 0));
+		panelArribaIzq13.setBackground(new Color(192, 192, 192));
 		panelArribaIzq1.add(panelArribaIzq13);
 		
 		btnInicioSesion_1 = new JButton();
@@ -223,11 +224,6 @@ public class VentanaPrincipal extends JFrame {
 		panelArribaIzq13.add(btnSalir_1);
 		
 		btnCerrarSesion_1 = new JButton();
-		btnCerrarSesion_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
 		btnCerrarSesion_1.setBackground(new Color(255, 0, 128));
 		panelArribaIzq13.add(btnCerrarSesion_1);
 		
@@ -243,20 +239,20 @@ public class VentanaPrincipal extends JFrame {
 		
 		setLocationRelativeTo( null );
 		
-		ponerFotoABoton(btnInicioSesion_1, "imagenes//iconoIniciarSesion.png", 30, 30, 30, 30);
+		ponerFotoABoton(btnInicioSesion_1, "imagenes\\iconoIniciarSesion.png", 30, 30, 30, 30);
 		
-		ponerFotoABoton(btnSalir_1, "imagenes//iconoSalirPagina.png", 30, 30, 30, 30);
+		ponerFotoABoton(btnSalir_1, "imagenes\\iconoSalirPagina.png", 30, 30, 30, 30);
 		
-		ponerFotoABoton(btnRegistrarme_1, "imagenes//iconoRegistrarUsuario.png", 30, 30, 30, 30);
+		ponerFotoABoton(btnRegistrarme_1, "imagenes\\iconoRegistrarUsuario.png", 30, 30, 30, 30);
 		
-		ponerFotoABoton(btnCerrarSesion_1, "imagenes//iconoCerrarSesion.png", 30, 30, 30, 30);
+		ponerFotoABoton(btnCerrarSesion_1, "imagenes\\iconoCerrarSesion.png", 30, 30, 30, 30);
 		
 
 		
 		
 		btnRegistrarme_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaRegis vReg = new VentanaRegis();//loginController);
+				VentanaRegis vReg = new VentanaRegis(loginController);
 			}
 		});
 		
@@ -268,7 +264,16 @@ public class VentanaPrincipal extends JFrame {
 		
 		btnInicioSesion_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaLog v = new VentanaLog();//loginController, service);
+				VentanaLog v = new VentanaLog(loginController, service);
+			}
+		});
+
+		btnReto.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaReto v1 = new VentanaReto(retoController);
 			}
 		});
 		
