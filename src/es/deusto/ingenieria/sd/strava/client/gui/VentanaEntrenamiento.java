@@ -46,7 +46,7 @@ public class VentanaEntrenamiento extends JFrame{
 		panel_1.add(labelSesion, BorderLayout.NORTH);
 		
 		JComboBox comboBoxSesion = new JComboBox();
-       // comboBoxSesion.setModel(new DefaultComboBoxModel(controller.getSesion().toArray()));
+        comboBoxSesion.setModel(new DefaultComboBoxModel(controller.getSesion().toArray()));
 		panel_1.add(comboBoxSesion);
 		
 		JPanel panel_2 = new JPanel();
@@ -77,7 +77,7 @@ public class VentanaEntrenamiento extends JFrame{
 					JOptionPane.showMessageDialog(null,  "debe introducir bien las fechas" , "error",JOptionPane.ERROR_MESSAGE);
 				}
 				
-			//	controller.makeSesion(titulo, deporte, Double.parseDouble(distancia), fechIni, Integer.parseInt(horaIni), Double.parseDouble(duracion));
+				controller.makeSesion(titulo, deporte, Double.parseDouble(distancia), fechIni, Integer.parseInt(horaIni), Double.parseDouble(duracion));
 				repaint();
 				
 			}

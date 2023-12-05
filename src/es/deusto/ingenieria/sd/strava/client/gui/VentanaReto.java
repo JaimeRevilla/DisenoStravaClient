@@ -76,12 +76,12 @@ public class VentanaReto extends JFrame{
 		//ArrayList<String> retos = new ArrayList<>();
 		
 		JComboBox comboBoxRetosTotales = new JComboBox();
-      //  comboBoxRetosTotales.setModel(new DefaultComboBoxModel(controller.getReto().toArray()));
+        comboBoxRetosTotales.setModel(new DefaultComboBoxModel(controller.getReto().toArray()));
 		panelTablaRetos.add(comboBoxRetosTotales);
 		
 		
 		JComboBox comboBoxRetosActivos = new JComboBox<>();
-		//comboBoxRetosActivos.setModel(new DefaultComboBoxModel(controller.getRetoAct().toArray()));
+		comboBoxRetosActivos.setModel(new DefaultComboBoxModel(controller.getRetoAct().toArray()));
 		panelRetosActivos.add(comboBoxRetosActivos);
         
         JPanel panel = new JPanel();
@@ -110,7 +110,7 @@ public class VentanaReto extends JFrame{
 				}else {
 					JOptionPane.showMessageDialog(null,  "debe introducir bien las fechas" , "error",JOptionPane.ERROR_MESSAGE);
 				}
-		//		controller.makeReto(nomRet, fechIni, fechFin, Double.parseDouble(distancia), Double.parseDouble(tiempoObj), deporte);
+				controller.makeReto(nomRet, fechIni, fechFin, Double.parseDouble(distancia), Double.parseDouble(tiempoObj), deporte);
 				
 				repaint();
 				
@@ -138,7 +138,7 @@ public class VentanaReto extends JFrame{
 				}else {
 					JOptionPane.showMessageDialog(null,  "debe introducir bien las fechas" , "error",JOptionPane.ERROR_MESSAGE);
 				}
-		//		controller.makeReto(nomRet, fechIni, fechFin, Double.parseDouble(distancia), Double.parseDouble(tiempoObj), deporte);
+				controller.makeReto(nomRet, fechIni, fechFin, Double.parseDouble(distancia), Double.parseDouble(tiempoObj), deporte);
 				
 				repaint();
 
