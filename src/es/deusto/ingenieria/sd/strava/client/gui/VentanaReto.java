@@ -38,9 +38,9 @@ public class VentanaReto extends JFrame{
 	private RetoController controller;
 	//private Object columnas[] = {"Nombre", "Fecha Inicio", "Fecha Fin"};
 	
-	public VentanaReto(RetoController retoController) {
+	public VentanaReto(/*RetoController retoController*/) {
 		
-		controller = retoController;
+		//controller = retoController;
 //		modeloRetos = new DefaultTableModel();
 //		modeloActivos = new DefaultTableModel();
 		
@@ -76,12 +76,12 @@ public class VentanaReto extends JFrame{
 		//ArrayList<String> retos = new ArrayList<>();
 		
 		JComboBox comboBoxRetosTotales = new JComboBox();
-        comboBoxRetosTotales.setModel(new DefaultComboBoxModel(controller.getReto().toArray()));
+        //comboBoxRetosTotales.setModel(new DefaultComboBoxModel(controller.getReto().toArray()));
 		panelTablaRetos.add(comboBoxRetosTotales);
 		
 		
 		JComboBox comboBoxRetosActivos = new JComboBox<>();
-		comboBoxRetosActivos.setModel(new DefaultComboBoxModel(controller.getRetoAct().toArray()));
+		//comboBoxRetosActivos.setModel(new DefaultComboBoxModel(controller.getRetoAct().toArray()));
 		panelRetosActivos.add(comboBoxRetosActivos);
         
         JPanel panel = new JPanel();

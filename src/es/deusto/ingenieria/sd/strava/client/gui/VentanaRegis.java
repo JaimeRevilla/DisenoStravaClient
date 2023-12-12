@@ -34,9 +34,9 @@ public class VentanaRegis extends JFrame{
 	private LoginController controller;
 	private JTextField fieldfnac;
 	
-	public VentanaRegis(LoginController logincontroller) {
+	public VentanaRegis(/*LoginController logincontroller*/) {
 		
-		controller = logincontroller;
+		//controller = logincontroller;
 		setBounds(425, 150, 800, 408);
 		
 		JPanel panel = new JPanel();

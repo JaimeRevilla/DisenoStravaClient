@@ -25,9 +25,9 @@ import java.awt.BorderLayout;
 public class VentanaEntrenamiento extends JFrame{
 	private SesionController controller;
 	
-	public VentanaEntrenamiento(SesionController sesionController) {
+	public VentanaEntrenamiento(/*SesionController sesionController*/) {
 		
-		controller = sesionController;
+		//controller = sesionController;
 		
 		setBounds(425, 150, 800, 408);
 		getContentPane().setLayout(new GridLayout(1, 0, 0, 0));
@@ -46,7 +46,7 @@ public class VentanaEntrenamiento extends JFrame{
 		panel_1.add(labelSesion, BorderLayout.NORTH);
 		
 		JComboBox comboBoxSesion = new JComboBox();
-        comboBoxSesion.setModel(new DefaultComboBoxModel(controller.getSesion().toArray()));
+        //comboBoxSesion.setModel(new DefaultComboBoxModel(controller.getSesion().toArray()));
 		panel_1.add(comboBoxSesion);
 		
 		JPanel panel_2 = new JPanel();

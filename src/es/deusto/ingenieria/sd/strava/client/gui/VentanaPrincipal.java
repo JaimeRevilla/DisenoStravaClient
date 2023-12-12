@@ -168,7 +168,7 @@ public class VentanaPrincipal extends JFrame {
 		btnEntrenamiento.setBackground(new Color(255,128,1));
 		btnEntrenamiento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaEntrenamiento vE = new VentanaEntrenamiento(sesionController);
+				VentanaEntrenamiento vE = new VentanaEntrenamiento(/*sesionController*/);
 			}
 		});
 		panelP2.add(btnEntrenamiento);
@@ -257,7 +257,7 @@ public class VentanaPrincipal extends JFrame {
 		
 		btnRegistrarme_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaRegis vReg = new VentanaRegis(loginController);
+				VentanaRegis vReg = new VentanaRegis(/*loginController*/);
 			}
 		});
 		
@@ -278,7 +278,7 @@ public class VentanaPrincipal extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				VentanaReto v1 = new VentanaReto(retoController);
+				VentanaReto v1 = new VentanaReto(/*retoController*/);
 			}
 		});
 		
