@@ -5,7 +5,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
+
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -75,14 +75,14 @@ public class VentanaReto extends JFrame{
 //		getContentPane().add(scrollActivos);
 		//ArrayList<String> retos = new ArrayList<>();
 		
-		JComboBox comboBoxRetosTotales = new JComboBox();
+		JTable comboBoxRetosTotales = new JTable();
         //comboBoxRetosTotales.setModel(new DefaultComboBoxModel(controller.getReto().toArray()));
 		panelTablaRetos.add(comboBoxRetosTotales);
 		
 		
-		JComboBox comboBoxRetosActivos = new JComboBox<>();
+		JTable JtableRetosActivos = new JTable();
 		//comboBoxRetosActivos.setModel(new DefaultComboBoxModel(controller.getRetoAct().toArray()));
-		panelRetosActivos.add(comboBoxRetosActivos);
+		panelRetosActivos.add(JtableRetosActivos);
         
         JPanel panel = new JPanel();
 		getContentPane().add(panel);

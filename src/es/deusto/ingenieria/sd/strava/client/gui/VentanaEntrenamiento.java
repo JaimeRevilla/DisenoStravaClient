@@ -45,9 +45,9 @@ public class VentanaEntrenamiento extends JFrame{
 		labelSesion.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(labelSesion, BorderLayout.NORTH);
 		
-		JComboBox comboBoxSesion = new JComboBox();
+		JTable JtableSesion = new JTable();
         //comboBoxSesion.setModel(new DefaultComboBoxModel(controller.getSesion().toArray()));
-		panel_1.add(comboBoxSesion);
+		panel_1.add(JtableSesion);
 		
 		JPanel panel_2 = new JPanel();
 		panel.add(panel_2);
