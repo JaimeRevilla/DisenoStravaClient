@@ -21,6 +21,8 @@ import es.deusto.ingenieria.sd.strava.server.data.dto.TipoProveedor;
 
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
+import java.awt.Color;
+import java.awt.Font;
 
 
 public class VentanaRegis extends JFrame{
@@ -34,20 +36,22 @@ public class VentanaRegis extends JFrame{
 	private LoginController controller;
 	private JTextField fieldfnac;
 	
-	public VentanaRegis(/*LoginController logincontroller*/) {
+	public VentanaRegis(LoginController logincontroller) {
 		
-		//controller = logincontroller;
-		setBounds(425, 150, 800, 408);
+		controller = logincontroller;
+		setBounds(325, 100, 800, 408);
 		
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(1, 2, 0, 0));
 		
 		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(new Color(255, 102, 0));
 		panel.add(panel_3);
 		panel_3.setLayout(new GridLayout(8, 2, 0, 0));
 		
 		JLabel lblNombre = new JLabel("Introduzca su nombre:");
+		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_3.add(lblNombre);
 		
 		fieldNom = new JTextField();
@@ -55,12 +59,14 @@ public class VentanaRegis extends JFrame{
 		fieldNom.setColumns(10);
 		
 		JLabel lblContr = new JLabel("Introduzca su contraseña");
+		lblContr.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_3.add(lblContr);
 		
 		fieldContr = new JPasswordField();
 		panel_3.add(fieldContr);
 		
 		JLabel lblEmail = new JLabel("Introduzca su mail:");
+		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_3.add(lblEmail);
 		
 		fieldMail = new JTextField();
@@ -68,6 +74,7 @@ public class VentanaRegis extends JFrame{
 		fieldMail.setColumns(10);
 		
 		JLabel lblFnac = new JLabel("Introduzca su FechaNacimiento");
+		lblFnac.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_3.add(lblFnac);
 		
 		fieldfnac = new JTextField();
@@ -75,6 +82,7 @@ public class VentanaRegis extends JFrame{
 		fieldfnac.setColumns(10);
 		
 		JLabel lblPeso = new JLabel("*opcional* Peso:");
+		lblPeso.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_3.add(lblPeso);
 		
 		fieldPeso = new JTextField();
@@ -82,6 +90,7 @@ public class VentanaRegis extends JFrame{
 		fieldPeso.setColumns(10);
 		
 		JLabel lblAlt = new JLabel("Altura:");
+		lblAlt.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_3.add(lblAlt);
 		
 		fieldAlt = new JTextField();
@@ -89,6 +98,7 @@ public class VentanaRegis extends JFrame{
 		fieldAlt.setColumns(10);
 		
 		JLabel lblFrecMax = new JLabel("FrecuenciaMaxima:");
+		lblFrecMax.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_3.add(lblFrecMax);
 		
 		fieldFrecMax = new JTextField();
@@ -96,6 +106,7 @@ public class VentanaRegis extends JFrame{
 		fieldFrecMax.setColumns(10);
 		
 		JLabel lblFrecRep = new JLabel("FrecuenciaReposo:");
+		lblFrecRep.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_3.add(lblFrecRep);
 		
 		fieldFrecRep = new JTextField();
@@ -103,36 +114,46 @@ public class VentanaRegis extends JFrame{
 		fieldFrecRep.setColumns(10);
 		
 		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(new Color(255, 102, 0));
 		panel.add(panel_4);
 		panel_4.setLayout(new GridLayout(4, 2, 0, 0));
 		
 		JLabel lblNewLabel = new JLabel("Elige el modo de registro");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_4.add(lblNewLabel);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setBackground(new Color(128, 128, 128));
+		comboBox.setForeground(Color.WHITE);
+		comboBox.setFont(new Font("Tahoma", Font.BOLD, 10));
         comboBox.setModel(new DefaultComboBoxModel(new String[] {"GOOGLE", "FACEBOOK", "STRAVA"}));
 		panel_4.add(comboBox);
 		
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 102, 0));
 		getContentPane().add(panel_1, BorderLayout.NORTH);
 		
 		JLabel lblRegis = new JLabel("REGISTRAR");
+		lblRegis.setForeground(Color.BLACK);
 		panel_1.add(lblRegis);
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(new Color(255, 102, 0));
 		getContentPane().add(panel_2, BorderLayout.SOUTH);
 		
 		JButton btnRegistrar = new JButton("Registrar");
+		btnRegistrar.setFont(new Font("Tahoma", Font.BOLD, 10));
 		panel_2.add(btnRegistrar);
 		
 		btnRegistrar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e){
+				System.out.println(fieldNom.getText());
 				controller.signup(fieldNom.getText(), fieldContr.getText(), fieldMail.getText(), fieldfnac.getText(), Double.parseDouble(fieldPeso.getText()), 
 								Integer.parseInt(fieldAlt.getText()), Double.parseDouble(fieldFrecMax.getText()), Double.parseDouble(fieldFrecRep.getText()), 
-								String.valueOf(comboBox.getSelectedItem()), TipoProveedor.values()[comboBox.getSelectedIndex()]);
+								"",TipoProveedor.values()[comboBox.getSelectedIndex()]);
 				dispose();
 			}
 		});
